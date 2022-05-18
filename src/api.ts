@@ -1,4 +1,4 @@
-const API_URL = "https://shopify-intern-challenge-2022.thaipham98.repl.co";
+const API_URL = "https://shopify-challenge-backend.thaipham98.repl.co";
 
 export const getItemList = async () => {
   const response = await fetch(`${API_URL}/items`, {
