@@ -9,9 +9,7 @@ import { Item } from "../types";
 import DeleteItemForm from "./Forms/DeleteItemForm";
 
 function App() {
-  const [inventoryData, setInventoryData] = useState([
-    { item_id: 1, name: "aaa", location: "vvvv", weather: "sunny" },
-  ]);
+  const [inventoryData, setInventoryData] = useState([]);
   const [modalMode, setModalMode] = useState("");
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
