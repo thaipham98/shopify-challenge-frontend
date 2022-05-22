@@ -71,7 +71,7 @@ const DeleteItemForm = ({
               disabled={isDeleting}
               onClick={onDelete}
             >
-              Delete
+              {isDeleting ? "Deleting..." : "Delete"}
             </button>
           </div>
         </div>

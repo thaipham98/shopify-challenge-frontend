@@ -7,14 +7,20 @@ import { getItemList } from "../api";
 import EditItemForm from "./Forms/EditItemForm";
 import { Item } from "../types";
 import DeleteItemForm from "./Forms/DeleteItemForm";
+import Spinner from "./Spinner";
 
 function App() {
   const [inventoryData, setInventoryData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [modalMode, setModalMode] = useState("");
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
   useEffect(() => {
-    fetchInventoryData();
+    (async () => {
+      setIsLoading(true);
+      await fetchInventoryData();
+      setIsLoading(false);
+    })();
   }, []);
 
   const fetchInventoryData = async () => {
@@ -41,7 +47,7 @@ function App() {
       }}
     >
       <div className="App p-2">
-        <ItemList />
+        {isLoading ? <Spinner /> : <ItemList />}
         <button className="px-4 py-0 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-1 m-2">
           <CSVLink data={generateCSV()}>Download me</CSVLink>
         </button>

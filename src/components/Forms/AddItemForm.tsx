@@ -96,7 +96,7 @@ const AddItemForm = ({ showAddItemForm }: { showAddItemForm: boolean }) => {
                 onClick={onAdd}
                 disabled={isAdding}
               >
-                Create
+                {isAdding ? "Creating item..." : "Create"}
               </button>
             </form>
           </div>

@@ -108,7 +108,7 @@ const EditItemForm = ({
                 onClick={onEdit}
                 disabled={isEditing}
               >
-                Edit confirm
+                {isEditing ? "Editing..." : "Edit confirm"}
               </button>
             </form>
           </div>
